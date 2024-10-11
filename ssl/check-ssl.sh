@@ -16,11 +16,11 @@ earliest_url=""
 # Проверка каждого URL
 for url in "${urls[@]}"; do
     # Получаем дату истечения сертификата
-    expiry_date=$(echo | openssl s_client -connect ${url#https://}:443 -servername ${url#https://} 2>/dev/null \
+    expiry_date=$(echo | openssl s_client -connect "${url#https://}:443" -servername "${url#https://}" 2>/dev/null \
         | openssl x509 -noout -enddate 2>/dev/null)
 
     # Проверяем, успешно ли получена дата
-    if [[ $? -ne 0 ]]; then
+    if [[ -z "$expiry_date" ]]; then
         echo "Не удалось получить сертификат для $url"
         continue
     fi
@@ -29,7 +29,13 @@ for url in "${urls[@]}"; do
     expiry_date=${expiry_date#*=}
 
     # Преобразуем дату в формат timestamp для сравнения
-    expiry_timestamp=$(date -d "$expiry_date" +%s)
+    expiry_timestamp=$(date -d "$expiry_date" +%s 2>/dev/null)
+
+    # Проверяем, успешно ли преобразовали дату
+    if ! date -d "$expiry_date" &>/dev/null; then
+        echo "Ошибка при преобразовании даты для $url"
+        continue
+    fi
 
     # Если earliest_date пуст, или текущая дата меньше earliest_date, обновляем
     if [[ -z "$earliest_date" || "$expiry_timestamp" -lt "$earliest_date" ]]; then

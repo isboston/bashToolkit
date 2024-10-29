@@ -1,41 +1,45 @@
 # Bash Scripts Collection
 
-Добро пожаловать в репозиторий скриптов на Bash! Здесь вы найдете различные скрипты, которые помогут автоматизировать повседневные задачи и упростить работу в командной строке.
+Welcome to the Bash scripts repository! Here you will find various scripts to help automate everyday tasks and simplify command-line work.
 
-## Содержание
+## Contents
 
-- [Установка](#установка)
-- [Использование](#использование)
-- [Скрипты](#скрипты)
-- [Вклад](#вклад)
-- [Лицензия](#лицензия)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Установка
+## Installation
 
-Для работы со скриптами вам потребуется доступ к командной строке и наличие bash. Просто клонируйте этот репозиторий на свой компьютер:
+To work with the scripts, you will need access to the command line and have Bash installed. Simply clone this repository to your computer:
 
 ```bash
 git clone https://github.com/isboston/bash.git
 ```
-## Использование
 
-После клонирования репозитория, перейдите в каталог со скриптами:
+## Usage
+
+After cloning the repository, navigate to the scripts directory:
 
 ```bash
 cd bash
 ```
-Вы можете запускать скрипты, используя следующую команду:
+
+You can run the scripts using the following command:
 
 ```bash
-./имя_скрипта.sh
+./script_name.sh
 ```
-Не забудьте сделать скрипт исполняемым, если это необходимо:
+
+Don't forget to make the script executable if necessary:
 
 ```bash
-chmod +x имя_скрипта.sh
+chmod +x script_name.sh
 ```
-## Скрипты
 
-script1.sh: Описание первого скрипта.
-script2.sh: Описание второго скрипта.
-script3.sh: Описание третьего скрипта.
+## Scripts
+
+- `script1.sh`: Description of the first script.
+- `script2.sh`: Description of the second script.
+- `script3.sh`: Description of the third script.
